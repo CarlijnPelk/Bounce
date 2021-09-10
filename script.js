@@ -1,8 +1,8 @@
 // globale variabelen
 var x = 640;
 var y = 360;
-var speedX = Math.floor((Math.random() * 10) - 10);
-var speedY = Math.floor((Math.random() * 10) - 10);
+var speedX = Math.floor((Math.random() * 5) - 5;
+var speedY = Math.floor((Math.random() * 5) - 5);
 
 /**
  * setup
