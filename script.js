@@ -1,7 +1,7 @@
 // globale variabelen
-var x = 640;
-var y = 360;
-var speedX = Math.floor((Math.random() * 5) - 5;
+var x = Math.floor((Math.random() * 1200) + 80);
+var y = Math.floor((Math.random() * 760) + 80);
+var speedX = Math.floor((Math.random() * 5) - 5);
 var speedY = Math.floor((Math.random() * 5) - 5);
 
 /**
@@ -34,7 +34,7 @@ function setup() {
 
   for (var i = 0; i < 5; i++){   
     // teken een cirkel
-    ellipse(x, y, 80, 80);
+    ellipse(Math.floor((Math.random() * 1200) + 80), Math.floor((Math.random() * 760) + 80), 80, 80);
 
   
     //positie updaten
