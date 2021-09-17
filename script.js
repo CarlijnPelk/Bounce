@@ -1,8 +1,5 @@
 // globale variabelen
-var x = Math.floor((Math.random() * 1200) + 80);
-var y = Math.floor((Math.random() * 760) + 80);
-var speedX = Math.floor((Math.random() * 5) - 5);
-var speedY = Math.floor((Math.random() * 5) - 5);
+var ballen = [];
 
 /**
  * setup
@@ -13,8 +10,18 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  for (var i = 0; i < 25; i++) {
+    var randomx = random(50, 1230);
+    var randomy = random(50, 670);
+    var randomSpeedX = random (-5, 5);
+    var randomSpeedY = random (-5, 5);
+
+    var bal = new Bal(randomx, randomy, randomSpeedX, randomSpeedY);
+
+    ballen.push(bal);
+  }
+
+
 }
 
 
@@ -23,39 +30,12 @@ function setup() {
  * de code in deze functie wordt meerdere keren per seconde
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
- function draw() {
-
-  
+function draw() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 
-  // stel vulkleur in
-  fill(255, 255, 255);
-
-  for (var i = 0; i < 5; i++){   
-    // teken een cirkel
-    ellipse(Math.floor((Math.random() * 1200) + 80), Math.floor((Math.random() * 760) + 80), 80, 80);
-
-  
-    //positie updaten
-    x = x + speedX;
-    y = y + speedY;
-  }
-
-  // laat stuiteren tegen de onderkant
-  if (y === 720) {
-    speedY = speedY * -1;
-  }
-
-  if (y === 0) {
-    speedY = speedY * -1;
-  }
-
-  if (x === 1280) {
-    speedX = speedX * -1;
-  }
-
-  if (x === 0) {
-    speedX = speedX * -1;
+  for(var i = 0; i < ballen.length; i++) {
+    ballen[i].show();
+    ballen[i].update();
   }
 }
